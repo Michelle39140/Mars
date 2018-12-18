@@ -2,10 +2,14 @@
 from flask import Flask, render_template, redirect
 import pymongo
 from scrape_mars import scrape
+import os
 # create Flask app
 app = Flask(__name__)
 
-conn = "mongodb://localhost:27017"
+conn = os.environ.get('MONGO_URL')
+if not conn:
+    conn = "mongodb://localhost:27017"
+#conn = "mongodb://localhost:27017"
 client = pymongo.MongoClient(conn)
 
 db = client.mars_db

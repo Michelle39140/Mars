@@ -1,2 +1,10 @@
 selenium==3.5.0
+
 splinter==0.7.6
+
+requests==2.18.4
+pandas==0.23.4
+flask==1.0.2
+pymongo==3.7.1
+gunicorn==19.0.0
+

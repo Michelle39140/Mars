@@ -5,9 +5,10 @@ def scrape():
     import requests
     import time
     import pandas as pd
+   
 
     # set up Splinter ----------------------------------------------------------------------
-    executable_path = {'executable_path': 'c://Users/Wusi/Anaconda3/chromedriver'}
+    executable_path = {'executable_path': 'chromedriver'}
     browser = Browser('chrome', **executable_path, headless=False)
 
 
