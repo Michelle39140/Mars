@@ -15,19 +15,23 @@ client = pymongo.MongoClient(conn)
 db = client.mars_db
 collection = db.info
 
+print("----------Mongo connected----------------")
 
 # routes-------------------------------------------------------
 @app.route("/")
 def render():
     data = collection.find_one()
+    print("found data")
     return render_template("index.html",data=data)
 
 
 @app.route("/scrape")
 def scraping():
+    print("scraping")
     data = scrape() # call scrape fucntion; store data returned from scraping
     collection.remove({}) # remove exsiting document in the collection
     collection.insert_one(data) # store retrived data into database as python dictionary
+    print("done scraping")
     return redirect("/") # redirect to be home page
 
 # run the app
